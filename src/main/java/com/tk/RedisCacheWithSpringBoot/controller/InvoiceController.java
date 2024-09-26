@@ -26,19 +26,21 @@ public class InvoiceController {
     public ResponseEntity<List<Invoice>> getAllInvoice() {
         return ResponseEntity.ok(invoiceService.getAllInvoice());
     }
+
     @GetMapping("/getOne/{id}")
     public Invoice getInvoice(@PathVariable Integer id) {
-            return invoiceService.getOneInvoice(id);
+        return invoiceService.getOneInvoice(id);
     }
+
     @PutMapping("/update/{id}")
     public Invoice updateInvoice(@PathVariable Integer id, @RequestBody Invoice invoice) {
-            return invoiceService.updateInvoice(invoice,id);
+        return invoiceService.updateInvoice(invoice, id);
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteInvoice(@PathVariable Integer id) {
         invoiceService.deleteInvoice(id);
-        return "Employee with id: " + id + " " +"Deleted Successfully";
+        return "Employee with id: " + id + " " + "Deleted Successfully";
     }
 
 }
